@@ -14,6 +14,7 @@ const App = () => {
 
   useEffect(() => {
     getRecipes()
+    console.log(recipes)
   }, [query])
 
   const getRecipes = async () => {
@@ -36,7 +37,7 @@ const App = () => {
     <div className="App">
       <Header />
       <form className='search-form' onSubmit={getSearch}>
-        <input className='search-bar' type='text' value={search} onChange={updateSearch}/>
+        <input className='search-bar' placeholder='Search recipe here' type='text' value={search} onChange={updateSearch}/>
         <button className='search-button' type='submit'>
           Search
         </button>
