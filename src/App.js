@@ -5,7 +5,7 @@ import Recipe from './Recipe';
 
 const App = () => {
 
-  const APP_ID ='d5452681';
+  const APP_ID = 'd5452681';
   const APP_KEY = '24af4e3453867f4af030b5c8780e8dcc'
 
   const [recipes, setRecipes] = useState([])
@@ -20,7 +20,7 @@ const App = () => {
   const getRecipes = async () => {
     const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`)
     const data = await response.json()
-    setRecipes (data.hits)
+    setRecipes(data.hits)
   }
 
   const updateSearch = e => {
@@ -37,7 +37,7 @@ const App = () => {
     <div className="App">
       <Header />
       <form className='search-form' onSubmit={getSearch}>
-        <input className='search-bar' placeholder='Search recipe here' type='text' value={search} onChange={updateSearch}/>
+        <input className='search-bar' placeholder='Search recipe here' type='text' value={search} onChange={updateSearch} />
         <button className='search-button' type='submit'>
           Search
         </button>
@@ -45,8 +45,8 @@ const App = () => {
       <div className='recipes'>
         {recipes.map(recipe => (
           <Recipe
-            key={recipe.recipe.label} 
-            title={recipe.recipe.label} 
+            key={recipe.recipe.label}
+            title={recipe.recipe.label}
             calories={recipe.recipe.calories}
             image={recipe.recipe.image}
             ingredients={recipe.recipe.ingredients}
